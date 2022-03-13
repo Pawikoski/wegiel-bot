@@ -45,6 +45,7 @@ while True:
         else:
             is_available = True
 
+        print(name, is_available)
         if is_available:
             with open(f'{datetime.now().strftime("%d/%m/%Y %H:%M:%S")}', 'w') as f:
                 f.write(name)
