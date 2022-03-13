@@ -13,7 +13,12 @@ from fake_useragent import UserAgent
 ua = UserAgent()
 url = 'https://sklep.pgg.pl/'
 
+count = 0
 while True:
+    if count % 10 == 0:
+        with open("working.txt", "w") as working:
+            working.write(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "Accept-Encoding": "gzip, deflate, br",
@@ -51,3 +56,4 @@ while True:
                 f.write(name)
 
     time.sleep(random.randint(200, 400))
+    count += 1
